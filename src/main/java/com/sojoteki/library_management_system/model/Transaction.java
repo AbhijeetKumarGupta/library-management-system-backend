@@ -8,7 +8,13 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 @Entity
 @Table(name = "Transaction")
 @Data
@@ -25,7 +31,7 @@ public class Transaction {
     private Date transactionDate;
 
     @Column(name = "due_date", nullable = false)
-    private Date dueDate;
+    private String dueDate;
 
     @Column(name = "transaction_type", nullable = false)
     @Enumerated(EnumType.STRING)
