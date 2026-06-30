@@ -80,4 +80,3 @@ http://localhost:7777
 ## Description
 
 This project is a backend application designed to handle core library operations. It provides service-layer logic and REST endpoints for managing books, students, library cards, and transactions such as issuing and returning books.
-```
