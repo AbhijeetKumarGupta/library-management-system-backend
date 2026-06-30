@@ -65,4 +65,14 @@ public class StudentController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getClass()+":\n"+"Update student with id "+ id +" failed - "+e.getMessage());
         }
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteStudent(@PathVariable int id){
+        try{
+            String response = studentService.deleteStudent(id);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        }catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getClass()+":\n"+"Delete student with id "+ id +" failed - "+e.getMessage());
+        }
+    }
 }

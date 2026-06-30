@@ -91,4 +91,14 @@ public class StudentService {
 
         return "Student updated successfully";
     }
+
+    public String deleteStudent(int stdId){
+        Student student = getStudentById(stdId);
+        if(student != null) {
+            studentRepository.delete(student);
+            return "Student deleted successfully";
+        }else{
+            throw new RuntimeException("Student not found");
+        }
+    }
 }
