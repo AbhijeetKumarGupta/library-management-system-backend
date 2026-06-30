@@ -37,4 +37,28 @@ public class CardService {
             throw new RuntimeException("Card with id " + cardId + " not found");
         }
     }
+
+    public String updateCard(int cardId, CardRequestDto cardRequestDto){
+        Card card = getCardById(cardId);
+
+        if(card != null){
+            card.setCardStatus(cardRequestDto.getCardStatus());
+            card.setExpiryDate(cardRequestDto.getExpiryDate());
+            cardRepository.save(card);
+            return "Card updated successfully";
+        }
+
+        throw new RuntimeException("Card with id " + cardId + " not found");
+    }
+
+    public String deleteCard(int cardId){
+        Card card = getCardById(cardId);
+
+        if(card != null){
+            cardRepository.delete(card);
+            return "Card deleted successfully";
+        }
+
+        throw new RuntimeException("Card with id " + cardId + " not found");
+    }
 }

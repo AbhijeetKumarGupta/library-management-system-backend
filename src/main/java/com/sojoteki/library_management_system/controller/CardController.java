@@ -38,7 +38,27 @@ public class CardController {
             Card card = cardService.getCardById(id);
             return ResponseEntity.status(HttpStatus.OK).body(card);
         } catch(Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getClass()+":\n"+"Fetch card by id failed - "+e.getMessage());
+        }
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateCard(@PathVariable int id, @RequestBody CardRequestDto cardRequestDto){
+        try{
+            String response = cardService.updateCard(id, cardRequestDto);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        }catch(Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getClass()+":\n"+"Update card with id failed - "+e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteCard(@PathVariable int id){
+        try{
+            String response = cardService.deleteCard(id);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        }catch(Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getClass()+":\n"+"Delete card with id failed - "+e.getMessage());
         }
     }
 }
