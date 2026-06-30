@@ -6,9 +6,11 @@ import com.sojoteki.library_management_system.repository.CardRepository;
 import com.sojoteki.library_management_system.repository.StudentRepository;
 import com.sojoteki.library_management_system.request_dto.StudentRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -40,8 +42,12 @@ public class StudentService {
         return "Student saved successfully";
     }
 
-    public List<Student> getAllStudents(){
-        return studentRepository.findAll();
+    public Page<Student> getAllStudents(String sortBy, String sortOrder, int pageNo, int pageSize){
+        return studentRepository.findAll(
+                PageRequest.of(pageNo, pageSize,
+                        sortOrder.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending()
+                )
+        );
     }
 
     public Student getStudentById(int studentId){
