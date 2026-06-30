@@ -36,13 +36,23 @@ public class StudentController {
         }
     }
 
+    @GetMapping("/getByEmail")
+    public ResponseEntity<?> getStudentByEmail(@RequestParam String email){
+        try{
+            Student student = studentService.getStudentByEmail(email);
+            return ResponseEntity.status(HttpStatus.OK).body(student);
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getClass()+":\n"+"Fetch student by id failed - "+e.getMessage());
+        }
+    }
+
     @GetMapping("{id}")
     public ResponseEntity<?> getStudentById(@PathVariable int id){
         try {
             Student student = studentService.getStudentById(id);
             return ResponseEntity.status(HttpStatus.OK).body(student);
         }catch(Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getClass()+":\n"+"Get operation failed - "+e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getClass()+":\n"+"Fetch student by id failed - "+e.getMessage());
         }
     }
 }

@@ -59,4 +59,14 @@ public class StudentService {
             throw new RuntimeException("Student with id " + studentId + " not found");
         }
     }
+
+    public Student getStudentByEmail(String email){
+        Optional<Student> student = studentRepository.getStudentByEmail(email);
+
+        if(student.isPresent()){
+            return student.get();
+        }else{
+            throw new RuntimeException("Student with email " + email + " not found");
+        }
+    }
 }
