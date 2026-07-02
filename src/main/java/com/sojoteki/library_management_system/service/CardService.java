@@ -27,6 +27,10 @@ public class CardService {
         return cardRepository.findAll();
     }
 
+    public List<Card> getUnusedCards() {
+        return cardRepository.findByStudentIsNull();
+    }
+
     public Card getCardById(int cardId) {
         return cardRepository.findById(cardId)
                 .orElseThrow(() -> new ResourceNotFoundException("Card with id " + cardId + " not found"));

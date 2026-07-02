@@ -29,6 +29,11 @@ public class CardController {
         return cardService.getAllCards();
     }
 
+    @GetMapping("/unused")
+    public List<Card> getUnusedCards() {
+        return cardService.getUnusedCards();
+    }
+
     @GetMapping("/{id}")
     public Card getCardById(@PathVariable int id) {
         return cardService.getCardById(id);
