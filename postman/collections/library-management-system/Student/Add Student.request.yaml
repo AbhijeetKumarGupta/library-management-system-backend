@@ -1,12 +1,13 @@
 $kind: http-request
+name: Add Student
 url: "{{baseUrl}}/api/v1/student/save"
 method: POST
 body:
   type: json
   content: |-
     {
-        "name": "Aniket",
-        "email": "anikeg375@gmail.com",
+        "name": "Abhijeet Gupta",
+        "email": "abhijeetg375@gmail.com",
         "mobile": "9876543210",
         "department": "Computer Science",
         "semester": "6",

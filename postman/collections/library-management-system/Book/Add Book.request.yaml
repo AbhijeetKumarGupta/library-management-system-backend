@@ -1,4 +1,5 @@
 $kind: http-request
+name: Add Book
 url: "{{baseUrl}}/api/v1/book/save"
 method: POST
 body:
@@ -11,6 +12,6 @@ body:
         "pages": 1,
         "availability": true,
         "category": "Spiritual",
-        "rackNo": 11
+        "rackNo": 1
     }
 order: 1000

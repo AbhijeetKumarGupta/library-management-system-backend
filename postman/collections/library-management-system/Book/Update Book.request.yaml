@@ -1,5 +1,6 @@
 $kind: http-request
-url: "{{baseUrl}}/api/v1/book/update/4"
+name: Update Book
+url: "{{baseUrl}}/api/v1/book/update/6"
 method: PUT
 body:
   type: json

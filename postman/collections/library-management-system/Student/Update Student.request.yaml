@@ -1,18 +1,19 @@
 $kind: http-request
-url: "{{baseUrl}}/api/v1/student/update/7"
+name: Update Student
+url: "{{baseUrl}}/api/v1/student/update/11"
 method: PUT
 body:
   type: json
   content: |-
     {
         "name": "Aniket Updated",
-        "email": "anikeg375@gmail.com",
+        "email": "anikegg375@gmail.com",
         "mobile": "9876543210",
         "department": "Computer Science",
-        "semester": "7",
+        "semester": "6",
         "gender": "MALE",
         "address": "Pune",
         "dob": "01/01/2000",
-        "cardId": 1
+        "cardId": 9
     }
 order: 5000

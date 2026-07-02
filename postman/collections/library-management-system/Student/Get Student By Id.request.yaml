@@ -1,4 +1,5 @@
 $kind: http-request
-url: "{{baseUrl}}/api/v1/student/1"
+name: Get Student By Id
+url: "{{baseUrl}}/api/v1/student/11"
 method: GET
 order: 3000

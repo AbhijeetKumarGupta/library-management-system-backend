@@ -1,4 +1,7 @@
 $kind: http-request
-url: "{{baseUrl}}/api/v1/student/getByEmail?email=anikeg375@gmail.com"
+name: Get Student By Email
+url: "{{baseUrl}}/api/v1/student/getByEmail?email=anikegg375@gmail.com"
 method: GET
+queryParams:
+  email: anikegg375@gmail.com
 order: 4000
